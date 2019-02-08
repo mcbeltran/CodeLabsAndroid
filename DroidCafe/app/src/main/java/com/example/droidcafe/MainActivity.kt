@@ -15,13 +15,19 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    var mOrderMessage: String = ""
+    //val extraMsg: String = "com.example.android.droidcafe.extra.MESSAGE"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        mOrderMessage = ""
+
         fab.setOnClickListener{
           var intent = Intent(this, OrderActivity::class.java)
+            intent.putExtra("EXTRA_MSG", mOrderMessage)
             startActivity(intent)
         }
     }
@@ -49,13 +55,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showDonutOrder(view: View){
-        displayToast(getString(R.string.donut_order_message))
+        mOrderMessage = getString(R.string.donut_order_message)
+        displayToast(mOrderMessage)
     }
     fun showIceCreamOrder(view: View) {
-        displayToast(getString(R.string.ice_cream_order_message))
+        mOrderMessage = getString(R.string.ice_cream_order_message)
+        displayToast(mOrderMessage)
     }
     fun showFroyoOrder(view: View){
-        displayToast(getString(R.string.froyo_order_message))
+        mOrderMessage = getString(R.string.froyo_order_message)
+        displayToast(mOrderMessage)
     }
 
 }
