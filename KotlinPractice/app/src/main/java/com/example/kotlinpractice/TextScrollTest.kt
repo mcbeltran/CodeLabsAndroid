@@ -42,3 +42,4 @@ class TextScrollTest : AppCompatActivity() {
     }
 
 }
+
